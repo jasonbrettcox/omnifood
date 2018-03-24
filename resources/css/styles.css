@@ -5,17 +5,20 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
-html,
-body{
+html{
     background-color: #fff;
     color: #555;
     font-family: 'Lato', 'Arial', sans-serif;
     font-size: 20px;
     font-weight: 300;
     text-rendering: optimizeLegibility;
+    
+}
+body{
     overflow-x: hidden;
 }
 
@@ -36,7 +39,7 @@ section{
 
 .row{
    max-width: 1140px;
-   margin:0 auto ;
+   margin:0 auto;
 }
 
 h1, 
@@ -73,12 +76,6 @@ h2:after{
     margin: 0 auto;
     margin-top: 5vh;
 }
-.logo{
-    height: 15vh;
-    width: auto;
-    float: left;
-    margin-top: 3vh;
-}
 
 .long-copy {
     line-height: 145%;
@@ -103,6 +100,7 @@ input[type=submit]{
     text-decoration: none;
     border-radius: 200px;
     color: #fff;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
     transition: background-color 0.2s, border 0.2s, color 0.2s; 
     margin-right: 15px;
 }
@@ -162,6 +160,7 @@ a:visited{
     text-decoration: none;
     border-bottom: 1px solid #e67e22;
     padding-bottom: 1px; 
+    -webkit-transition: border-bottom 0.2s, color 0.2s; 
     transition: border-bottom 0.2s, color 0.2s
 }
 
@@ -173,6 +172,8 @@ a:active{
 /*-------------------------------------------------------*/
 /*-------------- NAV     --------------------*/
 /*-------------------------------------------------------*/
+
+/* main nav  */
 .main-nav{
     float: right;
     list-style: none;
@@ -191,18 +192,62 @@ a:active{
     text-transform: uppercase;
     font-size: 90%;
     border-bottom: 2px solid transparent; 
+    -webkit-transition: border-bottom 0.2s; 
+    transition: border-bottom 0.2s;
 }
 
 .main-nav li a:hover,
 .main-nav li a:active{
     border-bottom: 2px solid #e67e22;
+    -webkit-transition: border .2s;
     transition: border .2s;
 }
+
+/* sticky nav  */
+
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    -webkit-box-shadow: 0 2px 2px #efefef;
+            box-shadow: 0 2px 2px #efefef;
+    z-index: 9999;
+}
+
+.sticky .main-nav { margin-top: 18px; }
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 16px 0;
+    color: #555;
+}
+
+.sticky .logo { display: none; }
+.sticky .logo-black { display: block; }
+
+/* ----sticky nav----  */
+
+.mobile-nav-icon{
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-nav-icon i{
+    font-size: 200%;
+    color: #fff;
+}
+
 /*-------------------------------------------------------*/
 /*-------------- HEADER      --------------------*/
 /*-------------------------------------------------------*/
 header{
-    background-image: linear-gradient(rgba(0,0,0,.4), #000), url(/resources/img/hero.jpg);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.4)), to(#000)), url(../img/hero-min.jpg);
+    background-image: linear-gradient(rgba(0,0,0,.4), #000), url(../img/hero-min.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -214,8 +259,27 @@ header{
     width: 1140px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%)
 }
+
+.logo{
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.logo-black { 
+    display: none;
+    height: 50px;
+    margin-top: 1vh;
+    width: auto;
+    float: left;
+    margin: 5px 0;
+};
+
 /*-------------------------------------------------------*/
 /*-------------- MEALS     --------------------*/
 /*-------------------------------------------------------*/
@@ -245,13 +309,20 @@ header{
     opacity: 0.7;
     width: 100%;
     height: auto;
-    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+            -ms-transform: scale(1.15);
+        transform: scale(1.15);
+    -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
+    transition: opacity 0.4s, -webkit-transform 0.4s;
     transition: transform 0.4s, opacity 0.4s;
+    transition: transform 0.4s, opacity 0.4s, -webkit-transform 0.4s;
 }
 
 .meal-photo img:hover{
     opacity: 1;
-    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+            -ms-transform: scale(1.03);
+        transform: scale(1.03);
 }
 /*-------------------------------------------------------*/
 /*--------------FEATURES    --------------------*/
@@ -341,7 +412,8 @@ header{
 /*--------------TESTIMONIALS --------------------*/
 /*-------------------------------------------------------*/
 .section-testimonials{
-    background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/resources/img/back-customers.jpg);
+    background-image:-webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0.8))), url(/resources/img/back-customers-min.jpg);
+    background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/resources/img/back-customers-min.jpg);
     background-size: cover;
     color: #fff;
     background-attachment: fixed;
@@ -388,7 +460,8 @@ cite img{
     border-radius: 5px;
     width: 90%;
     margin-left: 5%;
-    box-shadow: 0 2px 2px #efefef;
+    -webkit-box-shadow: 0 2px 2px #efefef;
+            box-shadow: 0 2px 2px #efefef;
 }
 
 .plan-box div{
@@ -493,6 +566,7 @@ footer{
     text-decoration: none;
     border:0;
     color: #888;
+    -webkit-transition: color 0.2s;
     transition: color 0.2s;
 }
 .footer-nav li a:hover,
@@ -514,9 +588,9 @@ footer{
 .ion-social-twitter,
 .ion-social-snapchat,
 .ion-social-instagram{
+    -webkit-transition: color 0.2s;
     transition: color 0.2s;
 }
-
 
 .ion-social-facebook:hover{
     color:#3b5998;
@@ -531,10 +605,29 @@ footer{
         color: #517fa4;
 }
 
-
-
 footer p{
     text-align: center;
     color: #888;
     margin-top: 8vh;
+}
+/*-------------------------------------------------------*/
+/*-------------- animations --------------------*/
+/*-------------------------------------------------------*/
+.js--wp-1,
+.js--wp-2,
+.js--wp-3{
+    opacity:0;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+}
+
+.js--wp-4{
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+}
+
+.js--wp-1.animated,
+.js--wp-2.animated,
+.js--wp-3.animated{
+    opacity:1;
 }
